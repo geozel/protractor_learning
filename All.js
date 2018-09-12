@@ -1,21 +1,20 @@
 describe('Getting the list of Elements with All method', function () {
+    function Add(a,b){
+          element(by.model("first")).sendKeys(a);
+          element(by.model("second")).sendKeys(b);
+    }
 
     it('should work', function () {
 
         browser.get('http://juliemr.github.io/protractor-demo/');
-        element(by.model("first")).sendKeys("3");
-        element(by.model("second")).sendKeys("5");
-
+        
+        Add(3,5);
         element(by.id("gobutton")).click();
 
-        element(by.model("first")).sendKeys("1");
-        element(by.model("second")).sendKeys("4");
-
+        Add(1,4);
         element(by.id("gobutton")).click();
 
-        element(by.model("first")).sendKeys("6");
-        element(by.model("second")).sendKeys("7");
-
+        Add(2,7);
         element(by.id("gobutton")).click();
 
         element.all(by.repeater("result in memory")).count().then(function(total){
